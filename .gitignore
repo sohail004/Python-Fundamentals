@@ -1,129 +1,357 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+Copyright 2021, Zaka AI, Inc. All Rights Reserved.
 
-# C extensions
-*.so
+# Python Basics
+---
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+**Objective:**
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+In this exercise, you will be covering basics of python including syntax, operators, data types, control flows, and.
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+[The Zen of Python, explained.](https://inventwithpython.com/blog/2018/08/17/the-zen-of-python-explained/)
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
 
-# Translations
-*.mo
-*.pot
+#Display Zen of Python
+import this
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+## Python as a calculator
 
-# Flask stuff:
-instance/
-.webassets-cache
+# power 
+print(2**3 )
 
-# Scrapy stuff:
-.scrapy
+# division
+print(42/15 )
 
-# Sphinx documentation
-docs/_build/
+# modulo
+print( 8%3) 
 
-# PyBuilder
-target/
+# floor division
+print(42//15)
 
-# Jupyter Notebook
-.ipynb_checkpoints
+## Using Variables
 
-# IPython
-profile_default/
-ipython_config.py
+#we have a rectangle having the below width and height
+width= 10
+height= 10
 
-# pyenv
-.python-version
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+#print area of the rectangle
+print(width * height)
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
+# add 10 to height and print
+height += 5
+print(width * height)
 
-# SageMath parsed files
-*.sage.py
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+# print a check condition if the shape is a square
+print(height == width)
 
-# Spyder project settings
-.spyderproject
-.spyproject
+## Booleans
 
-# Rope project settings
-.ropeproject
 
-# mkdocs documentation
-/site
+True & False
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+True | False 
 
-# Pyre type checker
-.pyre/
+z= True 
+z2 = False 
+
+z &= z2 # same as z = z & z2
+print(z)
+
+## Strings
+
+print ("I'm starting an AI course soon!")
+
+print ("""This is a 
+multiline string""") 
+# OR
+print("\nfirst line \n second line")
+
+# print combination of two strings
+print("I am starting"+"am AI course soon")
+
+word="University"
+      # print first letter of word
+print(  word[0])
+
+# print last letter of word
+print(word[-1])
+
+## Type casting
+
+# It is often useful to change the type of an object
+a=2
+b=3
+print (a+b)
+print ('Value of b: ' + str(b))
+b= 4
+print(a + b) 
+
+# what if b was not a string
+print ('Value of b: ' + str(b))
+
+## Lists
+Lists can be used to group together other items. In python (unlike other languages), lists can contain items of different types.
+
+nums = [1,4,9,16,25]
+
+# print the first element in the list nums
+print(nums[0])
+
+# print from nums elements ranging from the third element(inclusive) till the end
+print(nums[2:3])
+
+# print elements at index 2(inclusive) to 4(exclusive)
+print(nums[:-1])
+
+# print length of the list
+print(len(nums))
+
+## Dictionaries
+
+A dictionary is a collection which is unordered, changeable and indexed. In Python dictionaries are written with curly brackets, and they have keys and values.
+
+info ={
+    'Name': 'Jean',
+    'Address': 'Beirut',
+    'Age': 23, 
+    'Destination': 'AI Galaxy',
+    'Year': 2020
+}
+
+print(info)
+
+# To access dictionary elements, you can use the familiar square brackets along with the key to obtain its value
+info["Year"] = 2022
+print (info['Name'],' works in', info['Year'])
+
+# You can change the value of a specific item by referring to its key name.
+info['Year'] = 2021
+info['Address'] = 'Jbeil'
+
+print(info)
+
+## Data Types
+**Mutable vs Immutable:** in Python, some objects can be changed without changing their identity(mutable) and others cannot(immutable).
+
+Some immutable objects (i.e. objects that can't be modified after creation):
+*   int
+*   float
+*   string
+*   boolean
+
+
+Some mutable objects:
+*   list
+*   dictionary
+
+
+This fact if goes unnoticed can result in some nasty bugs (errors) when defining functions, and therefore is important to understand. 
+
+NOTE: Mutable objects are great to use when you need to change the size of the object, example list, dict etc.. Immutables are used when you need to ensure that the object you made will always stay the same.
+
+[To read more about this.](https://medium.com/@meghamohan/mutable-and-immutable-side-of-python-c2145cf72747)
+
+# INT is IMMUTABLE
+x = 1
+y = 2
+z = 3
+print(id(x))
+#w = x + y 
+
+x = y + z
+
+print(x)
+print(y)
+
+# The id() function returns identity of the object. 
+# This is an integer which is unique for the given object and remains constant during its lifetime.
+print(id(x))
+print(id(y))
+print(id(z))
+print(id(w))
+
+id(x) == id(y)
+
+id(y) == id(3)
+
+x = x + 1
+print(x)
+print(y)
+print(id(x))
+print(id(y))
+
+id(x) != id(y)
+
+id(x) != id(3)
+
+# LIST is MUTABLE
+m = list([1, 2, 4])
+
+n =  m
+
+print(m)
+print(n)
+
+print(id(m))
+print(id(n))
+
+id(m) == id(n)
+
+m.pop()
+
+print(m)
+print(n)
+
+print(id(m))
+print(id(n))
+
+id(m) == id(n)
+
+NOTE: If a mutable object is called by reference in a function, it can change the original variable itself. Hence to avoid this, the original variable needs to be copied to another variable. Immutable objects can be called by reference because its value cannot be changed anyways.
+
+Notice the following error:
+
+word = "university" 
+ 
+
+But it works for lists, for example:
+
+squares=[1,4,9,16,25]
+squares[-2]=100
+print (squares)
+
+Examples of boolean operations:
+
+x=2
+y=3
+
+#The is operator compares the identity of two objects.
+print(x is y)
+
+x=2
+y=5
+#check if x is not equal to y and print
+print(x != y)
+
+
+x=2
+y=3
+#x OR y and print result
+print(x | y)
+
+x=2
+y=3
+#x AND y and print result
+print(x & y)
+
+## Control Flows
+
+### If statements
+
+#Read an integer from the user and save it in variable x
+x = int(input("please enter any integer"))
+
+
+# print if x is negative, zero, or positive
+if(x<0):
+  print("the value is negative")
+elif(x==0):
+  print("the value is zero")
+else:
+  print("the value is postitve")
+
+### While Loop
+
+# Adjust the previous code so that you keep on reading values from the user until he/she prints a positive integer
+
+#Read a positive integer from the user and save it in variable x
+x=int(input("Please enter a positive integer:"))
+
+
+#print if x is negative, zero, or postitive
+while(x < 0):
+  print("the value is negative")
+  x=int(input("please enter the positive value"))
+print("great you have inter a positive number")
+
+
+# write a loop that prints Fibonacci series starting at [1,2] up to 100
+# expected output: [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+
+# NOTE: A current Fibonacci value F(n) = F(n-1) + F(n-2)
+
+num=[1,2]
+
+while ((num[-1] + num[-2]) < 100):
+  fib_num = num[-1]+num[-2]
+  num =  num + [fib_num]
+nnem=[num]
+
+print(nnem)
+
+
+
+**Notice:**
+
+
+*   The while loop executes as long as the condition remains true.
+*   The body of the loop is indented. Indentation is how python groups statements. You can use tab or spaces for indentation, but you have to be consistent with the number of spaces. It is good practice to use exactly 4 spaces(or a tab).
+
+
+
+### For loop
+
+The for loop iterates over the items of a list (or the characters of a string) in the order that they appear. In other languages, for loops always have the form of
+
+     for (i= 1 to 10) --> loop iterator
+           perform action
+
+#Measure some strings
+words=['cat','window','university']
+
+# iterate through list of words and print the length of each
+for f in words:
+    print (f, len(f)) # what are we doing here?
+
+# If you want to iterate over numbers use the range function
+a=['I','love','Python','language','!']
+
+for i in range(len(a)):
+    print (i, a[i])
+
+You can loop through a dictionary by using a for loop. When looping through a dictionary, the return value are the keys of the dictionary, but there are methods to return the values as well.
+
+#print keys in the dictionary
+info ={
+    'Name': 'Jean',
+    'Address': 'Beirut',
+    'Age': 23, 
+    'Destination': 'AI Galaxy',
+    'Year': 2020
+}
+for x in info:
+  print(x)
+
+# print values in the dictionary
+for x in info.values():
+  print(x)
+
+# print keys and values adjacent to each other in the dictionary
+for x, y in info.items():
+  print("Key is: " + x, " Value is: " + str(y))
+
+## Functions
+
+# Write a function called "equal" that takes two inputs x and y
+# and prints True if they are equal and False otherwise
+
+def equal(x,y):
+  return(x==y)
+
+
+# Test your function
+print (equal(2,7))
+
+print(equal(3,4))
